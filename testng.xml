@@ -1,0 +1,28 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Automation Exercise API Suite">
+
+    <test name="Full User Lifecycle">
+        <classes>
+            <class name="Full_User_Exeperince.Full_User_Life_Cycle"/>
+        </classes>
+    </test>
+
+    <test name="Negative User Cycle">
+        <classes>
+            <class name="Full_User_Exeperince.Negative_UserCycle"/>
+        </classes>
+    </test>
+
+    <test name="Products and Search">
+        <classes>
+            <class name="Full_User_Exeperince.Products_SearchCross_Validation"/>
+        </classes>
+    </test>
+
+    <test name="Negative Login">
+        <classes>
+            <class name="Full_User_Exeperince.Negative_Login"/>
+        </classes>
+    </test>
+
+</suite>
