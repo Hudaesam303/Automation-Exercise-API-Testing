@@ -1,0 +1,1830 @@
+{
+  "info": {
+    "_postman_id": "2ed362cc-ffda-4ba1-ab94-8b6db0cfb7d6",
+    "name": "API Store(Automation Test Exercise Website)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54461690",
+    "_collection_link": "https://go.postman.co/collection/54461690-2ed362cc-ffda-4ba1-ab94-8b6db0cfb7d6?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Full Valid User Cycle",
+      "item": [
+        {
+          "name": "POST Account",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const random = Date.now();\r",
+                  "// احفظي الـ email اللي اتسجل بيه في variable تاني\r",
+                  "pm.environment.set(\"registered_email\", pm.environment.get(\"new_email\"));\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "{{new_name}}",
+                  "type": "text",
+                  "uuid": "b5c4d26b-e1c8-4716-8f6c-ff6267bf513d"
+                },
+                {
+                  "key": "email",
+                  "value": "{{new_email}}",
+                  "type": "text",
+                  "uuid": "e108a9df-42da-4cd7-a572-9c764f731f6a"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}",
+                  "type": "text",
+                  "uuid": "16fc028a-edcd-4512-88cc-1f3cac94dde7"
+                },
+                {
+                  "key": "title",
+                  "value": "{{new_title}}",
+                  "type": "text",
+                  "uuid": "0f61aaa3-884f-412f-89f3-a95080740c2c"
+                },
+                {
+                  "key": "birth_date",
+                  "value": "{{birth_date}}",
+                  "type": "text",
+                  "uuid": "93260908-7f5f-4e2c-bb5c-4b0112eade3b"
+                },
+                {
+                  "key": "birth_month",
+                  "value": "{{birth_month}}",
+                  "type": "text",
+                  "uuid": "749a3ca2-ed94-46ee-9053-e04fc727e83f"
+                },
+                {
+                  "key": "birth_year",
+                  "value": "{{birth_year}}",
+                  "type": "text",
+                  "uuid": "eadbd440-d63c-4cbf-b4ad-3edf9f310708"
+                },
+                {
+                  "key": "firstname",
+                  "value": "{{first_name}}",
+                  "type": "text",
+                  "uuid": "faf5bb9c-11eb-4561-9b46-35d5433cc1f9"
+                },
+                {
+                  "key": "lastname",
+                  "value": "{{last_name}}",
+                  "type": "text",
+                  "uuid": "cbed4a0a-8d9a-44c7-9b8f-55f6dc4ca865"
+                },
+                {
+                  "key": "company",
+                  "value": "{{company}}",
+                  "type": "text",
+                  "uuid": "6bc4ac00-bd97-4e01-b854-5ee2207c8de8"
+                },
+                {
+                  "key": "address1",
+                  "value": "{{address1}}",
+                  "type": "text",
+                  "uuid": "56b292fd-0214-40df-8a9b-6aec8416e99f"
+                },
+                {
+                  "key": "address2",
+                  "value": "{{address2}}",
+                  "type": "text",
+                  "uuid": "1db5a2ab-d05f-4b84-a47e-fd987d4aa2c6"
+                },
+                {
+                  "key": "country",
+                  "value": "{{countary}}",
+                  "type": "text",
+                  "uuid": "0f84408b-0aff-4bba-90f6-cef487917da0"
+                },
+                {
+                  "key": "zipcode",
+                  "value": "{{zipcode}}",
+                  "type": "text",
+                  "uuid": "f5f71702-79d9-4f12-b4a5-b8f02724f7e1"
+                },
+                {
+                  "key": "state",
+                  "value": "{{state}}",
+                  "type": "text",
+                  "uuid": "2c305ccc-c57c-430a-9da4-01f55085b039"
+                },
+                {
+                  "key": "city",
+                  "value": "{{city}}",
+                  "type": "text",
+                  "uuid": "8d4ac556-d98e-4d6c-b16d-81d16348814b"
+                },
+                {
+                  "key": "mobile_number",
+                  "value": "{{mobile_number}}",
+                  "type": "text",
+                  "uuid": "4a9a7120-a542-4708-bc6f-6e96e1078c0a"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/createAccount?email={{new_email}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "createAccount"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{new_email}}",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}",
+                  "type": "text",
+                  "uuid": "1e513d08-9567-4075-b0fd-56ffdb20412c"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}",
+                  "type": "text",
+                  "uuid": "21cbd6e5-fdec-4a01-bbae-809eabddaf52"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/verifyLogin?email={{registered_email}}&password={{new_password}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET User Details",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}",
+                  "type": "text",
+                  "uuid": "7ad26d6b-3d4e-471c-82a4-457881085658"
+                },
+                {
+                  "key": "email",
+                  "value": "{{new_email}}",
+                  "type": "text",
+                  "uuid": "09768829-0ad1-4261-9dbe-623c9ac7fb36",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/getUserDetailByEmail?email={{registered_email}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "getUserDetailByEmail"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT User Details",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}",
+                  "type": "text",
+                  "uuid": "b6e28d66-ea3b-4079-bf0c-803766ddfec2"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}",
+                  "type": "text",
+                  "uuid": "a46ba7a2-4e34-4077-9a2c-c942e448b519"
+                },
+                {
+                  "key": "name",
+                  "value": "salma",
+                  "type": "text",
+                  "uuid": "d6c14d13-bfeb-4cf1-9f12-9bce93cdf569"
+                },
+                {
+                  "key": "email",
+                  "value": "salama@test.com",
+                  "type": "text",
+                  "uuid": "6cdfa6cf-e761-4c36-aaae-e26e9b78c846",
+                  "disabled": true
+                },
+                {
+                  "key": "city",
+                  "value": "Giza",
+                  "type": "text",
+                  "uuid": "0781f1cb-4998-4145-9c25-884586a732c7"
+                },
+                {
+                  "key": "firstname",
+                  "value": "salma",
+                  "type": "text",
+                  "uuid": "705d8361-608c-4378-8601-24c9a214ee8f"
+                },
+                {
+                  "key": "lastname",
+                  "value": "aziz",
+                  "type": "text",
+                  "uuid": "1de6a695-c75f-43f0-9ffd-e0027c6d50eb"
+                },
+                {
+                  "key": "company",
+                  "value": "valeo",
+                  "type": "text",
+                  "uuid": "eef7e296-34c7-44b8-8fe7-5f56ab3a9219"
+                },
+                {
+                  "key": "mobilenumber",
+                  "value": "01112764312",
+                  "type": "text",
+                  "uuid": "df4268a1-7d29-4ed3-bf78-6587ea955a39"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/updateAccount?email={{registered_email}}&password={{new_password}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "updateAccount"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET UserDetails after update",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}",
+                  "type": "text",
+                  "uuid": "7ad26d6b-3d4e-471c-82a4-457881085658"
+                },
+                {
+                  "key": "email",
+                  "value": "{{new_email}}",
+                  "type": "text",
+                  "uuid": "09768829-0ad1-4261-9dbe-623c9ac7fb36",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/getUserDetailByEmail?email={{registered_email}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "getUserDetailByEmail"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Account",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}",
+                  "type": "text",
+                  "uuid": "82246e4e-e13d-4425-a4fc-91b01dd57325"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}",
+                  "type": "text",
+                  "uuid": "cde04a28-f7f2-4543-b4b4-1e71fc907d24"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/deleteAccount?email={{registered_email}}&password={{new_password}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "deleteAccount"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}"
+                },
+                {
+                  "key": "email",
+                  "value": "{{new_email}}",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Login after delete",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}",
+                  "type": "text",
+                  "uuid": "1e513d08-9567-4075-b0fd-56ffdb20412c"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}",
+                  "type": "text",
+                  "uuid": "21cbd6e5-fdec-4a01-bbae-809eabddaf52"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/verifyLogin?email={{registered_email}}&password={{new_password}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET UserDetails after delete",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response code is 404\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(404);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}",
+                  "type": "text",
+                  "uuid": "7ad26d6b-3d4e-471c-82a4-457881085658"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/getUserDetailByEmail?email={{registered_email}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "getUserDetailByEmail"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Negative User Cycle",
+      "item": [
+        {
+          "name": "POST Account",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const random = Date.now();\r",
+                  "// احفظي الـ email اللي اتسجل بيه في variable تاني\r",
+                  "pm.environment.set(\"registered_email\", pm.environment.get(\"new_email\"));\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "{{new_name}}",
+                  "type": "text",
+                  "uuid": "b5c4d26b-e1c8-4716-8f6c-ff6267bf513d"
+                },
+                {
+                  "key": "email",
+                  "value": "{{new_email}}",
+                  "type": "text",
+                  "uuid": "e108a9df-42da-4cd7-a572-9c764f731f6a"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}",
+                  "type": "text",
+                  "uuid": "16fc028a-edcd-4512-88cc-1f3cac94dde7"
+                },
+                {
+                  "key": "title",
+                  "value": "{{new_title}}",
+                  "type": "text",
+                  "uuid": "0f61aaa3-884f-412f-89f3-a95080740c2c"
+                },
+                {
+                  "key": "birth_date",
+                  "value": "{{birth_date}}",
+                  "type": "text",
+                  "uuid": "93260908-7f5f-4e2c-bb5c-4b0112eade3b"
+                },
+                {
+                  "key": "birth_month",
+                  "value": "{{birth_month}}",
+                  "type": "text",
+                  "uuid": "749a3ca2-ed94-46ee-9053-e04fc727e83f"
+                },
+                {
+                  "key": "birth_year",
+                  "value": "{{birth_year}}",
+                  "type": "text",
+                  "uuid": "eadbd440-d63c-4cbf-b4ad-3edf9f310708"
+                },
+                {
+                  "key": "firstname",
+                  "value": "{{first_name}}",
+                  "type": "text",
+                  "uuid": "faf5bb9c-11eb-4561-9b46-35d5433cc1f9"
+                },
+                {
+                  "key": "lastname",
+                  "value": "{{last_name}}",
+                  "type": "text",
+                  "uuid": "cbed4a0a-8d9a-44c7-9b8f-55f6dc4ca865"
+                },
+                {
+                  "key": "company",
+                  "value": "{{company}}",
+                  "type": "text",
+                  "uuid": "6bc4ac00-bd97-4e01-b854-5ee2207c8de8"
+                },
+                {
+                  "key": "address1",
+                  "value": "{{address1}}",
+                  "type": "text",
+                  "uuid": "56b292fd-0214-40df-8a9b-6aec8416e99f"
+                },
+                {
+                  "key": "address2",
+                  "value": "{{address2}}",
+                  "type": "text",
+                  "uuid": "1db5a2ab-d05f-4b84-a47e-fd987d4aa2c6"
+                },
+                {
+                  "key": "country",
+                  "value": "{{countary}}",
+                  "type": "text",
+                  "uuid": "0f84408b-0aff-4bba-90f6-cef487917da0"
+                },
+                {
+                  "key": "zipcode",
+                  "value": "{{zipcode}}",
+                  "type": "text",
+                  "uuid": "f5f71702-79d9-4f12-b4a5-b8f02724f7e1"
+                },
+                {
+                  "key": "state",
+                  "value": "{{state}}",
+                  "type": "text",
+                  "uuid": "2c305ccc-c57c-430a-9da4-01f55085b039"
+                },
+                {
+                  "key": "city",
+                  "value": "{{city}}",
+                  "type": "text",
+                  "uuid": "8d4ac556-d98e-4d6c-b16d-81d16348814b"
+                },
+                {
+                  "key": "mobile_number",
+                  "value": "{{mobile_number}}",
+                  "type": "text",
+                  "uuid": "4a9a7120-a542-4708-bc6f-6e96e1078c0a"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/createAccount?email={{new_email}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "createAccount"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{new_email}}",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Account",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}",
+                  "type": "text",
+                  "uuid": "82246e4e-e13d-4425-a4fc-91b01dd57325"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}",
+                  "type": "text",
+                  "uuid": "cde04a28-f7f2-4543-b4b4-1e71fc907d24"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/deleteAccount?email={{registered_email}}&password={{new_password}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "deleteAccount"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}"
+                },
+                {
+                  "key": "email",
+                  "value": "{{new_email}}",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT User Details",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response code is 404\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(404);\r",
+                  "});\r",
+                  "\r",
+                  "const response = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Error message is correct\", function () {\r",
+                  "    pm.expect(response.message).to.eql(\"Account not found!\");\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}",
+                  "type": "text",
+                  "uuid": "b6e28d66-ea3b-4079-bf0c-803766ddfec2"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}",
+                  "type": "text",
+                  "uuid": "a46ba7a2-4e34-4077-9a2c-c942e448b519"
+                },
+                {
+                  "key": "name",
+                  "value": "salma",
+                  "type": "text",
+                  "uuid": "d6c14d13-bfeb-4cf1-9f12-9bce93cdf569"
+                },
+                {
+                  "key": "email",
+                  "value": "salama@test.com",
+                  "type": "text",
+                  "uuid": "6cdfa6cf-e761-4c36-aaae-e26e9b78c846",
+                  "disabled": true
+                },
+                {
+                  "key": "city",
+                  "value": "Giza",
+                  "type": "text",
+                  "uuid": "0781f1cb-4998-4145-9c25-884586a732c7"
+                },
+                {
+                  "key": "firstname",
+                  "value": "salma",
+                  "type": "text",
+                  "uuid": "705d8361-608c-4378-8601-24c9a214ee8f"
+                },
+                {
+                  "key": "lastname",
+                  "value": "aziz",
+                  "type": "text",
+                  "uuid": "1de6a695-c75f-43f0-9ffd-e0027c6d50eb"
+                },
+                {
+                  "key": "company",
+                  "value": "valeo",
+                  "type": "text",
+                  "uuid": "eef7e296-34c7-44b8-8fe7-5f56ab3a9219"
+                },
+                {
+                  "key": "mobilenumber",
+                  "value": "01112764312",
+                  "type": "text",
+                  "uuid": "df4268a1-7d29-4ed3-bf78-6587ea955a39"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/updateAccount?email={{registered_email}}&password={{new_password}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "updateAccount"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET UserDetails after delete",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "\r",
+                  "\r",
+                  "const response = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Response code is 404\", function () {\r",
+                  "    pm.expect(response.responseCode).to.eql(404);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Correct error message is returned\", function () {\r",
+                  "    pm.expect(response.message)\r",
+                  "      .to.eql(\"Account not found with this email, try another email!\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}",
+                  "type": "text",
+                  "uuid": "7ad26d6b-3d4e-471c-82a4-457881085658"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/getUserDetailByEmail?email={{registered_email}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "getUserDetailByEmail"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Login after delete",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "\r",
+                  "const response = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Response code is 404\", function () {\r",
+                  "    pm.expect(response.responseCode).to.eql(404);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Correct error message is returned\", function () {\r",
+                  "    pm.expect(response.message)\r",
+                  "      .to.eql(\"User not found!\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}",
+                  "type": "text",
+                  "uuid": "1e513d08-9567-4075-b0fd-56ffdb20412c"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}",
+                  "type": "text",
+                  "uuid": "21cbd6e5-fdec-4a01-bbae-809eabddaf52"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/verifyLogin?email={{registered_email}}&password={{new_password}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Account delated",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const response = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Response code is 404\", function () {\r",
+                  "    pm.expect(response.responseCode).to.eql(404);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Correct error message is returned\", function () {\r",
+                  "    pm.expect(response.message)\r",
+                  "      .to.eql(\"Account not found!\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}",
+                  "type": "text",
+                  "uuid": "82246e4e-e13d-4425-a4fc-91b01dd57325"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}",
+                  "type": "text",
+                  "uuid": "cde04a28-f7f2-4543-b4b4-1e71fc907d24"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/deleteAccount?email={{registered_email}}&password={{new_password}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "deleteAccount"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}"
+                },
+                {
+                  "key": "email",
+                  "value": "{{new_email}}",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Product& search cross validation",
+      "item": [
+        {
+          "name": "Get Product List",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const body=pm.response.json();\r",
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "//test response time\r",
+                  "pm.test(\"Respones time less than 3000\"),function(){\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(3000);\r",
+                  "};\r",
+                  "\r",
+                  "pm.test(\"responseCode is 200\"),function(){\r",
+                  "    pm.expect(body.products).to.eql(200);\r",
+                  "    \r",
+                  "};\r",
+                  "//test if products array is not empty\r",
+                  "pm.test(\"product array is not empty\"),function(){\r",
+                  "    pm.expect(body.products).to.be.an(\"array\").that.is.not.empty;\r",
+                  "};\r",
+                  "//check product fields\r",
+                  "pm.test(\"product has required fields\"),function(){\r",
+                  "    body.products.forEach(function(products)\r",
+                  "    {\r",
+                  "        pm.expect(products).to.have.property(\"id\");\r",
+                  "        pm.expect(products).to.have.property(\"name\");\r",
+                  "        pm.expect(products).to.have.property(\"price\");\r",
+                  "        pm.expect(products).to.have.property(\"category\");\r",
+                  "\r",
+                  "    });\r",
+                  "};\r",
+                  "pm.test(\"category have usertype\"),function(){\r",
+                  "    body.products.forEach(function(products)\r",
+                  "    {\r",
+                  "        pm.expect(products.category).to.have.property(\"usertype\");\r",
+                  "\r",
+                  "    });\r",
+                  "};\r",
+                  "//verify Product Schema\r",
+                  "pm.test(\"Product Schema(id)&(brand)\", function () {\r",
+                  "    pm.expect(body.products[0]).to.have.property(\"id\");\r",
+                  "    pm.expect(body.products[0].id).to.be.a(\"number\");\r",
+                  "       pm.expect(body.products[3]).to.have.property(\"brand\");\r",
+                  "        pm.expect(body.products[3].id).to.be.a(\"number\");\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}",
+                  "type": "text",
+                  "uuid": "3026caee-7345-4ca4-b088-4631dc31a2e4",
+                  "disabled": true
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}",
+                  "type": "text",
+                  "uuid": "2bfb02bd-b708-4415-9c5c-840746e24fc8",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/productsList",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "productsList"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}",
+                  "disabled": true
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Post Search Product",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "pm.test(\"Response contains products with 'Top'\", function () {\r",
+                  "    const response = pm.response.json();\r",
+                  "\r",
+                  "    const hasTop = response.products.some(product =>\r",
+                  "        product.name.includes(\"Top\")\r",
+                  "    );\r",
+                  "\r",
+                  "    pm.expect(hasTop).to.be.true;\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "search_product",
+                  "value": "Top",
+                  "type": "text",
+                  "uuid": "734d5b69-6664-4163-b411-f9fb33eac243"
+                },
+                {
+                  "key": "search_product",
+                  "value": "\"\"",
+                  "type": "text",
+                  "uuid": "34676c16-c15c-46e1-b34b-0dd9352e5c5b",
+                  "disabled": true
+                },
+                {
+                  "key": "search_product",
+                  "value": "شس",
+                  "type": "text",
+                  "uuid": "349f35c4-3d64-4b9f-b7e1-ba6302c15438",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/searchProduct",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "searchProduct"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Brands List",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const BrandsBody=pm.response.json();\r",
+                  "pm.test(\"status code is 200\"),function(){\r",
+                  "pm.response.to.have.status(200);\r",
+                  "};\r",
+                  "pm.test(\"Response Time is Less than 3000ms\"),function()\r",
+                  "{\r",
+                  "    pm.expect(BrandsBody.responseTime).to.be.below(3000);\r",
+                  "    \r",
+                  "};\r",
+                  "//to get all brands without repeatation\r",
+                  "const brands = BrandsBody.brands.map(b => b.brand);\r",
+                  "const uniqueBrands = [...new Set(brands)];\r",
+                  "\r",
+                  "pm.test(\"Number of unique brands is 8\", function () {\r",
+                  "    pm.expect(uniqueBrands.length).to.eql(8);\r",
+                  "});\r",
+                  "pm.test(\"Brands list is not empty\", function () {\r",
+                  "    const response = pm.response.json();\r",
+                  "    pm.expect(response.brands.length).to.be.above(0);\r",
+                  "});\r",
+                  "\r",
+                  "// اختاري البراند اللي إنتِ عايزاه من Environment\r",
+                  "const target = pm.environment.get(\"target_brand\");\r",
+                  "\r",
+                  "const response = pm.response.json();\r",
+                  "\r",
+                  "const foundBrand = response.brands.find(b =>\r",
+                  "    b.brand === target\r",
+                  ");\r",
+                  "\r",
+                  "pm.test(\"Target brand exists in response\", function () {\r",
+                  "    pm.expect(foundBrand, \"Brand not found\").to.not.be.undefined;\r",
+                  "});\r",
+                  "\r",
+                  "if (foundBrand) {\r",
+                  "    pm.environment.set(\"brand_keyword\", foundBrand.brand);\r",
+                  "    console.log(\"Saved brand:\", foundBrand.brand);\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "brand_keyword",
+                  "value": "{{brand_keyword}}",
+                  "type": "text",
+                  "uuid": "c648481b-f2f3-4b90-bd18-235da16724c4"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/brandsList",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "brandsList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Post Search product using brand keyword",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const response = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Search returned products array\", function () {\r",
+                  "    pm.expect(response.products).to.be.an(\"array\");\r",
+                  "});\r",
+                  "\r",
+                  "// تأكد إن في منتجات فعلاً\r",
+                  "pm.test(\"Products exist\", function () {\r",
+                  "    pm.expect(response.products.length).to.be.above(0);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "search_product",
+                  "value": "polo",
+                  "type": "text",
+                  "uuid": "734d5b69-6664-4163-b411-f9fb33eac243"
+                },
+                {
+                  "key": "search_product",
+                  "value": "\"\"",
+                  "type": "text",
+                  "uuid": "34676c16-c15c-46e1-b34b-0dd9352e5c5b",
+                  "disabled": true
+                },
+                {
+                  "key": "search_product",
+                  "value": "شس",
+                  "type": "text",
+                  "uuid": "349f35c4-3d64-4b9f-b7e1-ba6302c15438",
+                  "disabled": true
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/searchProduct",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "searchProduct"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Negative Login-Tc",
+      "item": [
+        {
+          "name": "Post valid login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "{{user_email}}",
+                  "type": "text",
+                  "uuid": "1f2f2306-9908-4d6f-8478-db556e857cad"
+                },
+                {
+                  "key": "password",
+                  "value": "{{user_password}}",
+                  "type": "text",
+                  "uuid": "420cf381-f64c-49fa-a3d7-662a2148e422"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/verifyLogin?email={{registered_email}}&password={{new_password}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Missing email",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response code is 404\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(404);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "1f2f2306-9908-4d6f-8478-db556e857cad"
+                },
+                {
+                  "key": "password",
+                  "value": "{{user_password}}",
+                  "type": "text",
+                  "uuid": "420cf381-f64c-49fa-a3d7-662a2148e422"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/verifyLogin?email=&password={{new_password}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": ""
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid email",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response code is 404\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(404);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "amina@gmail.com",
+                  "type": "text",
+                  "uuid": "1f2f2306-9908-4d6f-8478-db556e857cad"
+                },
+                {
+                  "key": "password",
+                  "value": "{{user_password}}",
+                  "type": "text",
+                  "uuid": "420cf381-f64c-49fa-a3d7-662a2148e422"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/verifyLogin?email=InvalidEmail@gmail.com&password={{new_password}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "InvalidEmail@gmail.com"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "wrong password",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response code is 404\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(404);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "{{user_email}}",
+                  "type": "text",
+                  "uuid": "1f2f2306-9908-4d6f-8478-db556e857cad"
+                },
+                {
+                  "key": "password",
+                  "value": "134",
+                  "type": "text",
+                  "uuid": "420cf381-f64c-49fa-a3d7-662a2148e422"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/verifyLogin?email={{registered_email}}&password=",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}"
+                },
+                {
+                  "key": "password",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Missing Password",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response code is 404\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(404);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "{{user_email}}",
+                  "type": "text",
+                  "uuid": "1f2f2306-9908-4d6f-8478-db556e857cad"
+                },
+                {
+                  "key": "password",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "420cf381-f64c-49fa-a3d7-662a2148e422"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/verifyLogin",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}",
+                  "disabled": true
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "valid email with space",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response code is 404\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(404);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "email",
+                  "value": "hodaesam 00@gmail.com",
+                  "type": "text",
+                  "uuid": "1f2f2306-9908-4d6f-8478-db556e857cad"
+                },
+                {
+                  "key": "password",
+                  "value": "{{user_password}}",
+                  "type": "text",
+                  "uuid": "420cf381-f64c-49fa-a3d7-662a2148e422"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/verifyLogin?email={{registered_email}}&password={{new_password}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{registered_email}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{new_password}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          "const timestamp = Date.now();\r",
+          "pm.environment.set(\"new_email\", `Nadine_${timestamp}@test.com`);"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          "pm.test(\"Response time is less than 3000ms\", function () {\r",
+          "    pm.expect(pm.response.responseTime).to.be.below(3000);\r",
+          "});"
+        ]
+      }
+    }
+  ]
+}
