@@ -24,7 +24,10 @@ API Test Automation Framework for [Automation Exercise](https://automationexerci
 | Negative User Cycle | 6 | Operations on deleted account |
 | Products & Search | 4 | Products list, search, brands |
 | Negative Login | 6 | Invalid credentials scenarios |
-| **Total** | **24** | |
+| **Total** | **24** | **✅ 100% Pass Rate** |
+
+## 📮 Postman Collection
+A Postman collection and environment file are also included in this repo (`API Store(Automation Test Exercise Website).postman_collection.json` and `API Store Environment.postman_environment.json`) — useful for manual/exploratory testing or as a quick reference for the same API flows covered by the automated suite.
 
 ## 🚀 How to Run
 ```bash
@@ -37,3 +40,4 @@ mvn allure:serve
 
 ## 👩‍💻 Author
 **Huda Esam** — QA Engineer | ISTQB CTFL Certified
+[LinkedIn](www.linkedin.com/in/huda-esam-b85b6a22a) · [GitHub](https://github.com/Hudaesam303)
